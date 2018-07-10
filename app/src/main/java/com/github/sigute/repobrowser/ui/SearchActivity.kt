@@ -1,7 +1,8 @@
-package com.github.sigute.repobrowser
+package com.github.sigute.repobrowser.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.github.sigute.repobrowser.R
 
 class SearchActivity : AppCompatActivity() {
 
