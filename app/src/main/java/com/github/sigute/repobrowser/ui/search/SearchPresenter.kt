@@ -1,4 +1,4 @@
-package com.github.sigute.repobrowser.ui
+package com.github.sigute.repobrowser.ui.search
 
 import com.github.sigute.repobrowser.api.GithubService
 import com.github.sigute.repobrowser.api.model.SearchRepositoriesResponse

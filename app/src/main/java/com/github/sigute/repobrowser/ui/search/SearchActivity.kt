@@ -1,4 +1,4 @@
-package com.github.sigute.repobrowser.ui
+package com.github.sigute.repobrowser.ui.search
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

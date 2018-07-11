@@ -4,8 +4,8 @@ import com.github.sigute.repobrowser.api.GithubService
 import com.github.sigute.repobrowser.api.model.Repository
 import com.github.sigute.repobrowser.api.model.RepositoryOwner
 import com.github.sigute.repobrowser.api.model.SearchRepositoriesResponse
-import com.github.sigute.repobrowser.ui.SearchPresenter
-import com.github.sigute.repobrowser.ui.SearchView
+import com.github.sigute.repobrowser.ui.search.SearchPresenter
+import com.github.sigute.repobrowser.ui.search.SearchView
 import com.nhaarman.mockitokotlin2.then
 import io.reactivex.Single
 import kotlinx.coroutines.experimental.runBlocking
