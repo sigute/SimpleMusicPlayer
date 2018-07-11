@@ -10,6 +10,7 @@ class RepositoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun setRepository(repository: Repository) {
         itemView.repositoryName.text = repository.name
         itemView.repositoryForks.text = repository.forksCount.toString()
+        itemView.repositoryStars.text = repository.stargazersCount.toString()
 
         if (repository.description != null) {
             itemView.repositoryDescription.text = repository.description
