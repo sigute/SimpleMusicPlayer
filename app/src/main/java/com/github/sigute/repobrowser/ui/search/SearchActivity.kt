@@ -33,9 +33,11 @@ class SearchActivity : AppCompatActivity(), SearchView {
     private fun setUpViews() {
         searchButton.setOnClickListener {
             launch {
-                presenter.searchTapped(searchTerm.text.toString())
+                presenter.searchTapped(searchTerm.text.toString(), sortSpinner.selectedItem as SortType)
             }
         }
+
+        sortSpinner.adapter = SearchSortSpinnerAdapter(this)
     }
 
     override fun showLoading() {

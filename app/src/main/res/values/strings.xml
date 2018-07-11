@@ -5,4 +5,10 @@
     <string name="repositories_activity_title">Repository results</string>
     <string name="hint_repositories_containing">Repositories containing</string>
     <string name="find">Find</string>
+    <string name="sorted_by">sorted by</string>
+
+    <string name="sort_options_best_match">Best Match</string>
+    <string name="sort_options_stars">Stars</string>
+    <string name="sort_options_forks">Forks</string>
+    <string name="sort_options_last_updated">Last Updated</string>
 </resources>

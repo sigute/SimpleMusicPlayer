@@ -8,10 +8,10 @@ class SearchPresenter(
         private val searchView: SearchView,
         private val repositoriesDataSource: GithubService) {
 
-    suspend fun searchTapped(query: String) {
+    suspend fun searchTapped(query: String, sortType: SortType) {
         searchView.showLoading()
 
-        repositoriesDataSource.searchRepositories(query, null)
+        repositoriesDataSource.searchRepositories(query, sortType.apiValue)
                 .subscribe(object : ResourceSingleObserver<SearchRepositoriesResponse>() {
                     override fun onSuccess(repositoriesResponse: SearchRepositoriesResponse) {
                         searchView.showSearchResults(repositoriesResponse)

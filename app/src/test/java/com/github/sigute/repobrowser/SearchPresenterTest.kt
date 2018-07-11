@@ -1,11 +1,13 @@
 package com.github.sigute.repobrowser
 
+import com.github.sigute.repobrowser.R.id.sortSpinner
 import com.github.sigute.repobrowser.api.GithubService
 import com.github.sigute.repobrowser.api.model.Repository
 import com.github.sigute.repobrowser.api.model.RepositoryOwner
 import com.github.sigute.repobrowser.api.model.SearchRepositoriesResponse
 import com.github.sigute.repobrowser.ui.search.SearchPresenter
 import com.github.sigute.repobrowser.ui.search.SearchView
+import com.github.sigute.repobrowser.ui.search.SortType
 import com.nhaarman.mockitokotlin2.then
 import io.reactivex.Single
 import kotlinx.coroutines.experimental.runBlocking
@@ -56,7 +58,7 @@ class SearchPresenterTest {
         presenter = SearchPresenter(mockSearchView, mockRepositoriesDataSource)
 
         runBlocking {
-            presenter.searchTapped("searchQuery")
+            presenter.searchTapped("searchQuery", SortType.BestMatch)
         }
 
         // then
@@ -69,7 +71,7 @@ class SearchPresenterTest {
         presenter = SearchPresenter(mockSearchView, mockRepositoriesNoDataSource)
 
         runBlocking {
-            presenter.searchTapped("searchQuery")
+            presenter.searchTapped("searchQuery", SortType.BestMatch)
         }
 
         // then
