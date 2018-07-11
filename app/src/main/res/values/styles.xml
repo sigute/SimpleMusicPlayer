@@ -5,4 +5,20 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
     </style>
+
+    <style name="TextTitle">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextBody">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="TextNote">
+        <item name="android:textSize">@dimen/text_note</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
 </resources>

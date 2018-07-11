@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.github.sigute.repobrowser.R
 import com.github.sigute.repobrowser.api.model.SearchRepositoriesResponse
 import com.github.sigute.repobrowser.di.DaggerWrapper
+import com.github.sigute.repobrowser.ui.repositories.RepositoriesActivity
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.experimental.launch
 
@@ -47,8 +48,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
 
     override fun showSearchResults(searchResults: SearchRepositoriesResponse) {
         runOnUiThread {
-            resultsText.text = searchResults.toString()
-            //TODO
+            startActivity(RepositoriesActivity.getIntent(this, searchResults.items))
         }
     }
 
