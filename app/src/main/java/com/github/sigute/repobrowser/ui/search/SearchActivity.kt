@@ -33,14 +33,14 @@ class SearchActivity : AppCompatActivity(), SearchView {
     private fun setUpViews() {
         searchButton.setOnClickListener {
             launch {
-                //TODO get actual value
-                presenter.searchTapped("stuff")
+                presenter.searchTapped(searchTerm.text.toString())
             }
         }
     }
 
     override fun showLoading() {
         runOnUiThread {
+            searchTerm.isEnabled = false
             searchButton.isEnabled = false
             //TODO add spinner
         }
@@ -48,12 +48,16 @@ class SearchActivity : AppCompatActivity(), SearchView {
 
     override fun showSearchResults(searchResults: SearchRepositoriesResponse) {
         runOnUiThread {
+            searchTerm.isEnabled = true
+            searchButton.isEnabled = true
             startActivity(RepositoriesActivity.getIntent(this, searchResults.items))
         }
     }
 
     override fun showError(error: String) {
         runOnUiThread {
+            searchTerm.isEnabled = true
+            searchButton.isEnabled = true
             //TODO
         }
     }
