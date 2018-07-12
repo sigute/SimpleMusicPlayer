@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:padding="@dimen/margin_normal"
     tools:context=".ui.search.SearchActivity">
 
@@ -12,6 +13,7 @@
         style="@style/TextBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:text="@string/find" />
 
     <android.support.design.widget.TextInputLayout
@@ -25,9 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_repositories_containing"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:nextFocusDown="@+id/sortSpinner" />
+            android:imeOptions="actionDone"
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -47,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/searchTermLayout"
         android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
         android:layout_toEndOf="@+id/sortLabel"
-        android:background="@null"
-        android:nextFocusDown="@+id/searchButton" />
+        android:background="@null" />
 
     <com.dx.dxloadingbutton.lib.LoadingButton
         android:id="@+id/searchButton"
