@@ -30,7 +30,7 @@ class RepositoriesActivity : AppCompatActivity(), RepositoriesView {
         setUpViews()
 
         if (savedInstanceState != null) {
-            //TODO restore state
+            presenter.setRepositories(savedInstanceState.getParcelableArrayList(EXTRA_REPOSITORIES))
         } else {
             presenter.setRepositories(intent.getParcelableArrayListExtra(EXTRA_REPOSITORIES))
         }
@@ -38,7 +38,7 @@ class RepositoriesActivity : AppCompatActivity(), RepositoriesView {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         outState?.let {
-            //TODO save state
+            outState.putParcelableArrayList(EXTRA_REPOSITORIES, presenter.getRepositories())
         }
         super.onSaveInstanceState(outState)
     }
