@@ -1,6 +1,5 @@
 package com.github.sigute.repobrowser
 
-import com.github.sigute.repobrowser.R.id.sortSpinner
 import com.github.sigute.repobrowser.api.GithubService
 import com.github.sigute.repobrowser.api.model.Repository
 import com.github.sigute.repobrowser.api.model.RepositoryOwner
@@ -26,21 +25,19 @@ class SearchPresenterTest {
     @Mock
     private lateinit var mockSearchView: SearchView
 
-    private val searchResults: SearchRepositoriesResponse by lazy {
-        SearchRepositoriesResponse(
-                listOf(
-                        Repository("Name",
-                                RepositoryOwner("TestOwner", "www.google.com/avatar.gif"),
-                                "www.google.com",
-                                "Test Repo",
-                                10,
-                                2)))
-    }
+    private val REPOSITORIES = listOf(
+            Repository("Name",
+                    RepositoryOwner("TestOwner", "www.google.com/avatar.gif"),
+                    "www.google.com",
+                    "Test Repo",
+                    10,
+                    2))
+    private val SEARCH_RESULTS = SearchRepositoriesResponse(REPOSITORIES)
 
     private val mockRepositoriesDataSource: GithubService by lazy {
         object : GithubService {
             override fun searchRepositories(query: String, sort: String?, order: String): Single<SearchRepositoriesResponse> {
-                return Single.just(searchResults)
+                return Single.just(SEARCH_RESULTS)
             }
         }
     }
@@ -63,7 +60,7 @@ class SearchPresenterTest {
 
         // then
         then(mockSearchView).should().showLoading()
-        then(mockSearchView).should().showSearchResults(searchResults)
+        then(mockSearchView).should().showRepositories(REPOSITORIES)
     }
 
     @Test

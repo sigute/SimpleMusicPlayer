@@ -14,8 +14,12 @@ class SearchPresenter(
         repositoriesDataSource.searchRepositories(query, sortType.apiValue)
                 .subscribe(object : ResourceSingleObserver<SearchRepositoriesResponse>() {
                     override fun onSuccess(repositoriesResponse: SearchRepositoriesResponse) {
-                        searchView.showSearchResults(repositoriesResponse)
-                        //TODO could show different stuff if results empty
+                        val repositories = repositoriesResponse.items
+                        if (repositories.isEmpty()) {
+                            searchView.showError("No repositories found")
+                            return
+                        }
+                        searchView.showRepositories(repositories)
                     }
 
                     override fun onError(e: Throwable) {
