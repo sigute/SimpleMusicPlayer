@@ -7,7 +7,13 @@ import com.github.sigute.repobrowser.utils.loadPersonImage
 import kotlinx.android.synthetic.main.holder_repository.view.*
 
 class RepositoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun setRepository(repository: Repository) {
+    companion object {
+        interface Delegate {
+            fun onRepositorySelected(repository: Repository)
+        }
+    }
+
+    fun setRepository(repository: Repository, delegate: Delegate?) {
         itemView.repositoryName.text = repository.name
         itemView.repositoryForks.text = repository.forksCount.toString()
         itemView.repositoryStars.text = repository.stargazersCount.toString()
@@ -23,7 +29,7 @@ class RepositoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.repositoryOwnerName.text = repository.owner.login
 
         itemView.setOnClickListener {
-            //TODO open next screen
+            delegate?.onRepositorySelected(repository)
         }
     }
 }

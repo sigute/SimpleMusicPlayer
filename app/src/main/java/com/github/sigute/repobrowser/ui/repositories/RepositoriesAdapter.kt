@@ -9,9 +9,11 @@ import com.github.sigute.repobrowser.R
 
 class RepositoriesAdapter : RecyclerView.Adapter<RepositoryHolder>() {
     private var repositories: List<Repository> = ArrayList()
+    private var delegate: RepositoryHolder.Companion.Delegate? = null
 
-    fun setRepositories(repositories: List<Repository>) {
+    fun setRepositories(repositories: List<Repository>, delegate: RepositoryHolder.Companion.Delegate?) {
         this.repositories = repositories
+        this.delegate = delegate
         notifyDataSetChanged()
     }
 
@@ -21,7 +23,7 @@ class RepositoriesAdapter : RecyclerView.Adapter<RepositoryHolder>() {
     }
 
     override fun onBindViewHolder(holder: RepositoryHolder, position: Int) {
-        holder.setRepository(repositories[position])
+        holder.setRepository(repositories[position], delegate)
     }
 
     override fun getItemCount(): Int = repositories.size

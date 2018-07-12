@@ -11,5 +11,6 @@ data class Repository(
         @SerializedName("html_url") val htmlUrl: String,
         @SerializedName("description") val description: String?,
         @SerializedName("stargazers_count") val stargazersCount: Int,
-        @SerializedName("forks_count") val forksCount: Int
+        @SerializedName("forks_count") val forksCount: Int,
+        @SerializedName("watchers_count") val watchersCount: Int
 ) : Parcelable

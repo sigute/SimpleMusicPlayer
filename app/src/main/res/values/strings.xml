@@ -12,4 +12,5 @@
     <string name="sort_options_forks">Forks</string>
     <string name="sort_options_last_updated">Last Updated</string>
     <string name="content_description_stars">Stars</string>
+    <string name="content_description_watchers">Watchers</string>
 </resources>

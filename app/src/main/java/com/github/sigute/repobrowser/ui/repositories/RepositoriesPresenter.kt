@@ -13,4 +13,9 @@ class RepositoriesPresenter(private val view: RepositoriesView) {
     fun getRepositories(): ArrayList<Repository> {
         return repositories
     }
+
+    fun repositorySelected(repository: Repository) {
+        //this method could have other things like tracking code, etc
+        view.showRepository(repository)
+    }
 }

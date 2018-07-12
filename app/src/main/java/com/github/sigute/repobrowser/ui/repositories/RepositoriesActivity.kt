@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.github.sigute.repobrowser.R
 import com.github.sigute.repobrowser.api.model.Repository
+import com.github.sigute.repobrowser.ui.repository.RepositoryActivity
 import kotlinx.android.synthetic.main.activity_repositories.*
 
-class RepositoriesActivity : AppCompatActivity(), RepositoriesView {
+class RepositoriesActivity : AppCompatActivity(), RepositoriesView, RepositoryHolder.Companion.Delegate {
     companion object {
         private const val EXTRA_REPOSITORIES = "EXTRA_REPOSITORIES"
 
@@ -50,7 +51,17 @@ class RepositoriesActivity : AppCompatActivity(), RepositoriesView {
 
     override fun showRepositories(repositories: List<Repository>) {
         runOnUiThread {
-            repositoriesAdapter.setRepositories(repositories)
+            repositoriesAdapter.setRepositories(repositories, this)
         }
+    }
+
+    override fun showRepository(repository: Repository) {
+        runOnUiThread {
+            startActivity(RepositoryActivity.getIntent(this, repository))
+        }
+    }
+
+    override fun onRepositorySelected(repository: Repository) {
+        presenter.repositorySelected(repository)
     }
 }
