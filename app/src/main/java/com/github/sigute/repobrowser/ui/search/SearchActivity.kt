@@ -18,6 +18,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
     private val presenter by lazy { SearchPresenter(this, DaggerWrapper.component.githubService) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
