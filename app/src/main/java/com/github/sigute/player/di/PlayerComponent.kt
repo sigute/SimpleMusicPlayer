@@ -7,7 +7,7 @@ import javax.inject.Singleton
 import dagger.Component
 
 @Singleton
-@Component(modules = [(RepoBrowserModule::class)])
-interface RepoBrowserComponent {
+@Component(modules = [(PlayerModule::class)])
+interface PlayerComponent {
     val githubService: GithubService
 }

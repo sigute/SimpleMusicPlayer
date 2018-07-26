@@ -1,10 +1,10 @@
 package com.github.sigute.player.di
 
 object DaggerWrapper {
-    val component: RepoBrowserComponent by lazy {
-        DaggerRepoBrowserComponent
+    val component: PlayerComponent by lazy {
+        DaggerPlayerComponent
                 .builder()
-                .repoBrowserModule(RepoBrowserModule())
+                .playerModule(PlayerModule())
                 .build()
     }
 }
