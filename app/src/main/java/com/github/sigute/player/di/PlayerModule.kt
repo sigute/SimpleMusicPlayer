@@ -1,6 +1,6 @@
 package com.github.sigute.player.di
 
-import com.github.sigute.player.api.GithubService
+import com.github.sigute.player.api.HeartThisService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -12,15 +12,15 @@ import javax.inject.Singleton
 class PlayerModule {
     @Provides
     @Singleton
-    internal fun provideGithubService(retrofit: Retrofit): GithubService {
-        return retrofit.create(GithubService::class.java)
+    internal fun provideHeartThisService(retrofit: Retrofit): HeartThisService {
+        return retrofit.create(HeartThisService::class.java)
     }
 
     @Provides
     @Singleton
     internal fun providesRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://api.github.com")
+                .baseUrl(" https://api-v2.hearthis.at")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

@@ -1,6 +1,6 @@
 package com.github.sigute.player.ui.search
 
-import com.github.sigute.player.api.GithubService
+import com.github.sigute.player.api.HeartThisService
 import com.github.sigute.player.api.model.SearchRepositoriesResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.ResourceSingleObserver
@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 
 class SearchPresenter(
         private val searchView: SearchView,
-        private val repositoriesDataSource: GithubService) {
+        private val repositoriesDataSource: HeartThisService) {
 
     fun searchTapped(query: String, sortType: SortType) {
         searchView.showLoading()
