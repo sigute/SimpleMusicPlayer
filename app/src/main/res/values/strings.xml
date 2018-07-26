@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RepoBrowser</string>
+    <string name="app_name">SimpleMusicPlayer</string>
     <string name="search">Search</string>
     <string name="content_description_forks">Forks</string>
     <string name="repositories_activity_title">Repository results</string>
