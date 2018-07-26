@@ -2,16 +2,20 @@ package com.github.sigute.player.ui.search
 
 import com.github.sigute.player.api.GithubService
 import com.github.sigute.player.api.model.SearchRepositoriesResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.ResourceSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class SearchPresenter(
         private val searchView: SearchView,
         private val repositoriesDataSource: GithubService) {
 
-    suspend fun searchTapped(query: String, sortType: SortType) {
+    fun searchTapped(query: String, sortType: SortType) {
         searchView.showLoading()
 
         repositoriesDataSource.searchRepositories(query, sortType.apiValue)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : ResourceSingleObserver<SearchRepositoriesResponse>() {
                     override fun onSuccess(repositoriesResponse: SearchRepositoriesResponse) {
                         val repositories = repositoriesResponse.items
