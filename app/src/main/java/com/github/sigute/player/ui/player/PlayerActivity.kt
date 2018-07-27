@@ -2,12 +2,17 @@ package com.github.sigute.player.ui.player
 
 import android.content.Context
 import android.content.Intent
+import android.media.AudioAttributes
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.sigute.player.R
 import com.github.sigute.player.api.model.Track
 import com.github.sigute.player.utils.loadTrackImage
 import kotlinx.android.synthetic.main.activity_player.*
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.widget.Toast
+
 
 class PlayerActivity : AppCompatActivity(), PlayerView {
     companion object {
@@ -45,6 +50,16 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         trackArtist.text = track.user.username
         loadTrackImage(this, track.artworkUrl, trackImage)
 
-        //TODO start music player
+        try {
+            val url = track.streamUrl
+            val mediaPlayer = MediaPlayer()
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+            mediaPlayer.setDataSource(url)
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+            e.printStackTrace()
+        }
     }
 }
