@@ -11,7 +11,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "com.github.sigute.repobrowser"
+        applicationId "com.github.sigute.player"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
