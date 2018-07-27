@@ -1,5 +1,6 @@
 package com.github.sigute.player.api
 
+import com.github.sigute.player.api.model.Artist
 import com.github.sigute.player.api.model.SearchRepositoriesResponse
 import com.github.sigute.player.api.model.Track
 import io.reactivex.Single
@@ -22,6 +23,11 @@ interface HeartThisService {
             @Query("count") count: Int = 20,
             @Query("type") type: String = "popular")
             : Single<List<Track>>
+
+    @GET("/{artistPermalink}")
+    fun getArtist(
+            @Path("artistPermalink") artistPermalink: String
+    ): Single<Artist>
 
     @GET("/{artistPermalink}/?type=tracks")
     fun getTracksForArtist(

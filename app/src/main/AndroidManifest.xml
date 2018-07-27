@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.search.SearchActivity"
+            android:name=".ui.artists.ArtistsActivity"
             android:launchMode="singleTop"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -22,14 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.repositories.RepositoriesActivity"
-            android:label="@string/repositories_activity_title"
-            android:launchMode="singleTask"
-            android:parentActivityName=".ui.search.SearchActivity" />
-        <activity
-            android:name=".ui.repository.RepositoryActivity"
-            android:parentActivityName=".ui.repositories.RepositoriesActivity" />
+        <!--<activity-->
+        <!--android:name=".ui.repositories.ArtistsActivity"-->
+        <!--android:label="@string/repositories_activity_title"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:parentActivityName=".ui.search.SearchActivity" />-->
+        <!--<activity-->
+        <!--android:name=".ui.repository.RepositoryActivity"-->
+        <!--android:parentActivityName=".ui.repositories.ArtistsActivity" />-->
     </application>
 
 </manifest>
