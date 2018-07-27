@@ -2,7 +2,6 @@ package com.github.sigute.player.ui.artist
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.github.sigute.player.api.model.Repository
 import android.view.LayoutInflater
 import com.github.sigute.player.R
 import com.github.sigute.player.api.model.Track
