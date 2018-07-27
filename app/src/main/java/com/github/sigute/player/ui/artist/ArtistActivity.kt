@@ -10,6 +10,7 @@ import com.github.sigute.player.R
 import com.github.sigute.player.api.model.Track
 import com.github.sigute.player.api.model.User
 import com.github.sigute.player.di.DaggerWrapper
+import com.github.sigute.player.ui.player.PlayerActivity
 import kotlinx.android.synthetic.main.activity_artist.*
 
 class ArtistActivity : AppCompatActivity(), ArtistView, TrackHolder.Companion.Delegate {
@@ -79,8 +80,7 @@ class ArtistActivity : AppCompatActivity(), ArtistView, TrackHolder.Companion.De
 
     override fun showTrack(track: Track) {
         runOnUiThread {
-            //TODO
-            //startActivity(RepositoryActivity.getIntent(this, track))
+            startActivity(PlayerActivity.getIntent(this, track))
         }
     }
 

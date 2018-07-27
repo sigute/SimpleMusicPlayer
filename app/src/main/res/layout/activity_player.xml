@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_normal">
+
+    <TextView
+        android:id="@+id/nowPlaying"
+        style="@style/TextNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/now_playing" />
+
+    <TextView
+        android:id="@+id/trackName"
+        style="@style/TextBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nowPlaying"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_small"
+        tools:text="Track Name" />
+
+    <TextView
+        android:id="@+id/by"
+        style="@style/TextNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trackName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/by" />
+
+    <TextView
+        android:id="@+id/trackArtist"
+        style="@style/TextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/by"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_big"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="Track Artist" />
+
+    <ImageView
+        android:id="@+id/trackImage"
+        android:layout_width="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trackArtist"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        tools:src="@drawable/ic_track" />
+</RelativeLayout>

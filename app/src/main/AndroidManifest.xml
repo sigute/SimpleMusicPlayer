@@ -29,9 +29,10 @@
             android:launchMode="singleTask"
             android:parentActivityName=".ui.artists.ArtistsActivity" />
 
-        <!--<activity-->
-        <!--android:name=".ui.repository.RepositoryActivity"-->
-        <!--android:parentActivityName=".ui.repositories.ArtistsActivity" />-->
+        <activity
+            android:name=".ui.player.PlayerActivity"
+            android:label="@string/activity_title_player"
+            android:parentActivityName=".ui.artist.ArtistActivity" />
     </application>
 
 </manifest>

@@ -13,4 +13,7 @@
     <string name="sort_options_last_updated">Last Updated</string>
     <string name="content_description_stars">Stars</string>
     <string name="content_description_watchers">Watchers</string>
+    <string name="activity_title_player">Player</string>
+    <string name="now_playing">now playing</string>
+    <string name="by">by</string>
 </resources>

@@ -30,12 +30,14 @@ class ArtistPresenter(private val view: ArtistView,
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : ResourceSingleObserver<List<Track>>() {
-                    override fun onSuccess(tracks: List<Track>) {
-                        if (tracks.isEmpty()) {
+                    override fun onSuccess(tracksResponse: List<Track>) {
+                        if (tracksResponse.isEmpty()) {
                             //TODO use error from resources
                             view.showTracksError("No tracks found")
                             return
                         }
+
+                        tracks = ArrayList(tracksResponse)
 
                         view.showTracks(tracks)
                     }
