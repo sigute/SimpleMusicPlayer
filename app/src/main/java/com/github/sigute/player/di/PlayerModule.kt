@@ -1,5 +1,6 @@
 package com.github.sigute.player.di
 
+import android.media.MediaPlayer
 import com.github.sigute.player.api.HeartThisService
 import dagger.Module
 import dagger.Provides
@@ -24,5 +25,11 @@ class PlayerModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
+    }
+
+    @Provides
+    @Singleton
+    internal fun providesMediaPlayer(): MediaPlayer {
+        return MediaPlayer()
     }
 }

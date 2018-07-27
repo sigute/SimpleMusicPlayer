@@ -2,7 +2,6 @@ package com.github.sigute.player.ui.player
 
 import android.content.Context
 import android.content.Intent
-import android.media.AudioAttributes
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.sigute.player.R
@@ -10,8 +9,8 @@ import com.github.sigute.player.api.model.Track
 import com.github.sigute.player.utils.loadTrackImage
 import kotlinx.android.synthetic.main.activity_player.*
 import android.media.AudioManager
-import android.media.MediaPlayer
 import android.widget.Toast
+import com.github.sigute.player.di.DaggerWrapper
 
 
 class PlayerActivity : AppCompatActivity(), PlayerView {
@@ -26,6 +25,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
     }
 
     private val presenter by lazy { PlayerPresenter(this) }
+    private val mediaPlayer by lazy { DaggerWrapper.component.mediaPlayer }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
 
         try {
             val url = track.streamUrl
-            val mediaPlayer = MediaPlayer()
+            mediaPlayer.reset()
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
             mediaPlayer.setDataSource(url)
             mediaPlayer.prepare()
