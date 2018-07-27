@@ -17,6 +17,7 @@ class TrackHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.trackName.text = track.title
 
         //TODO extract template to string resources
+        //TODO nicer way to represent track length
         val duration = track.duration.toInt()
         val hours = duration / 3600
         val minutes = duration % 3600 / 60

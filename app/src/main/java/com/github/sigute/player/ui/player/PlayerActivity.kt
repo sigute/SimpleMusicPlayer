@@ -50,6 +50,8 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         trackArtist.text = track.user.username
         loadTrackImage(this, track.artworkUrl, trackImage)
 
+        //TODO this continues playing when navigating back and as such meets the spec
+        // given more time, it could be replaced with background service, to ensure music continues even when activity finally gets destroyed
         try {
             val url = track.streamUrl
             mediaPlayer.reset()
