@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.artists.ArtistsActivity"
             android:launchMode="singleTop"
@@ -22,11 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-        <!--android:name=".ui.repositories.ArtistsActivity"-->
-        <!--android:label="@string/repositories_activity_title"-->
-        <!--android:launchMode="singleTask"-->
-        <!--android:parentActivityName=".ui.search.SearchActivity" />-->
+
+        <activity
+            android:name=".ui.artist.ArtistActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ui.artists.ArtistsActivity" />
+
         <!--<activity-->
         <!--android:name=".ui.repository.RepositoryActivity"-->
         <!--android:parentActivityName=".ui.repositories.ArtistsActivity" />-->

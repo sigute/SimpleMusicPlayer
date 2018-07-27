@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.github.sigute.player.R
 import com.github.sigute.player.api.model.User
 import com.github.sigute.player.di.DaggerWrapper
+import com.github.sigute.player.ui.artist.ArtistActivity
 import kotlinx.android.synthetic.main.activity_artists.*
 
 class ArtistsActivity : AppCompatActivity(), ArtistsView, ArtistHolder.Companion.Delegate {
@@ -51,8 +52,7 @@ class ArtistsActivity : AppCompatActivity(), ArtistsView, ArtistHolder.Companion
 
     override fun showUser(user: User) {
         runOnUiThread {
-            //TODO
-            //startActivity(RepositoryActivity.getIntent(this, user))
+            startActivity(ArtistActivity.getIntent(this, user))
         }
     }
 
